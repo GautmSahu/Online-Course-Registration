@@ -1,0 +1,42 @@
+{% extends 'student_menu.html' %}
+{% block content %}
+    <br>
+    {% if details %}
+    <table border="4" align="center">
+    <tr><th colspan="7" class="table_th_title">All Classes</th></tr>
+        {% if enrolled %}
+            <tr><th colspan="7" class="error_mess">{{ enrolled }}</th></tr>
+        {% endif %}
+        {% if enroll_now %}
+            <tr><th colspan="7" class="success_mess">{{ enroll_now }}</th></tr>
+        {% endif %}
+        <tr>
+                <th class="table_th_title1">Course Name</th>
+                <th class="table_th_title1">Faculty name</th>
+                <th class="table_th_title1">Date</th>
+                <th class="table_th_title1">Time</th>
+                <th class="table_th_title1">Fees</th>
+                <th class="table_th_title1">Duration (In Days)</th>
+                <th class="table_th_title1">Enroll</th>
+            </tr>
+        {% for data in details %}
+            <tr>
+                <th class="table_th_data">{{ data.name }}</th>
+                <th class="table_th_data">{{ data.faculty_name }}</th>
+                <th class="table_th_data">{{ data.date }}</th>
+                <th class="table_th_data">{{ data.time }}</th>
+                <th class="table_th_data">{{ data.fees }}</th>
+                <th class="table_th_data">{{ data.duration }}</th>
+                <th class="table_th_data">
+                    <a href="{% url 'student_enroll_course' %}?cid={{ data.id }}">
+                                <button>Enroll</button>
+                    </a>
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+        <h2 align="center">No Classes Scheduled</h2>
+    {% endif %}
+    <br><br><br><br><br><br><br><br>
+{% endblock %}

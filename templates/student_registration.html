@@ -1,0 +1,36 @@
+{% extends 'common.html' %}
+{% block content %}
+    <br>
+    <form action="{% url 'save_student' %}" method="post">
+    {% csrf_token %}
+        <table border="4" align="center">
+
+            {% if success %}
+                <tr><th class="success_mess" colspan="2">{{ success }}</th></tr>
+            {% endif %}
+            {% if error %}
+                <tr><th colspan="2" class="error_mess">{{ error }}</th></tr>
+            {% endif %}
+
+            <tr><th colspan="2" class="table_th_title">Student Registration</th></tr>
+            <tr>
+                <th class="table_th_title1">Name</th>
+                <th class="table_th_data"><input type="text" name="name" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Contact No</th>
+                <th class="table_th_data"><input type="number" name="contact" required pattern="[789][0-9]{9}"></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Email</th>
+                <th class="table_th_data"><input type="email" name="email" required ></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Password</th>
+                <th class="table_th_data"><input type="password" name="password" required ></th>
+            </tr>
+            <tr><th class="table_th_title1" colspan="2"><button class="table_th_button" type="submit">Register</button></th></tr>
+            <tr><th class="table_th_data" colspan="2">Note : Password Must Contains 1 Uppercase, 1 Lowercse and 1 Digit.</th></tr>
+        </table>
+    </form>
+{% endblock %}

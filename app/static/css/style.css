@@ -1,0 +1,37 @@
+.table_th_title{
+    font-size: 25px;
+    padding: 10px;
+    color: coral;
+    text-align: center;
+}
+.table_th_button{
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 15px 15px ;
+    color: black;
+    font-size: 25px;
+    background-color: greenyellow;
+}
+.table_th_title1{
+    font-size: 20px;
+    padding: 2px;
+    text-align: center;
+}
+.table_th_data{
+    font-size: 18px;
+    padding: 2px;
+    text-align: center;
+}
+.error_mess{
+    text-align: center;
+    font-family: "Agency FB";
+    font-size: 40px;
+    color: red;
+}
+.success_mess{
+    text-align: center;
+    font-family: "Agency FB";
+    font-size: 40px;
+    color: darkgreen;
+}

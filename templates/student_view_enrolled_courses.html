@@ -1,0 +1,30 @@
+{% extends 'student_menu.html' %}
+{% block content %}
+    <br>
+    {% if courses %}
+    <table align="center" border="4">
+        <tr><th colspan="6" class="table_th_title">All Enrolled Courses</th></tr>
+        <tr>
+            <th class="table_th_title1">Course Name</th>
+            <th class="table_th_title1">Faculty Name</th>
+            <th class="table_th_title1">Date</th>
+            <th class="table_th_title1">Time</th>
+            <th class="table_th_title1">Fees</th>
+            <th class="table_th_title1">Duration</th>
+        </tr>
+        {% for details in courses %}
+            <tr>
+                <th class="table_th_data">{{ details.course_name }}</th>
+                <th class="table_th_data">{{ details.faculty_name }}</th>
+                <th class="table_th_data">{{ details.date }}</th>
+                <th class="table_th_data">{{ details.time }}</th>
+                <th class="table_th_data">{{ details.fees }}</th>
+                <th class="table_th_data">{{ details.duration }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+        <h2 align="center">No Enrolled Courses</h2>
+    {% endif %}
+    <br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

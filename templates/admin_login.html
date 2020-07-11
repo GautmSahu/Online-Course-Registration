@@ -1,0 +1,22 @@
+{% extends 'common.html' %}
+{% block content %}
+    <br>
+    <form action="{% url 'validate_admin' %}" method="post">
+    {% csrf_token %}
+    <table border="4" align="center">
+        <tr><th class="table_th_title">Admin Login</th></tr>
+        <tr>
+            <th class="table_th_data"><input type="text" placeholder="Username" required name="uname"></th>
+        </tr>
+        <tr>
+            <th class="table_th_data"><input type="password" placeholder="Password" required name="upass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"></th>
+        </tr>
+        <tr><th class="table_th_data"><button class="table_th_button" type="submit">Login</button></th></tr>
+        {% if error %}
+            <tr><th class="error_mess">{{ error }}</th></tr>
+        {% endif %}
+        <tr><th class="table_th_data">Note : Password Must Contains 1 Uppercase, 1 Lowercse and 1 Digit.</th></tr>
+    </table>
+    </form>
+    <br><br><br><br><br><br><br><br>
+{% endblock %}

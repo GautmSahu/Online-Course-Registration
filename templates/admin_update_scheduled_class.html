@@ -1,0 +1,38 @@
+{% extends 'admin_menu.html' %}
+{% block adm_content %}
+    <br>
+    <form action="{% url 'admin_update_scheduled_class' %}" method="post">
+    {% csrf_token %}
+        <table border="4" align="center">
+            {% for x in data %}
+            <tr><th colspan="2" class="table_th_title">Update Scheduled Class</th></tr>
+            <tr>
+                <th class="table_th_title1">Course Name</th>
+                <th class="table_th_data"><input type="text" name="name" value="{{ x.name }}" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Faculty Name</th>
+                <th class="table_th_data"><input type="text" name="faculty_name" value="{{ x.faculty_name }}" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Date</th>
+                <th class="table_th_data"><input type="date" required value="{{ x.date }}" name="date"></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Time</th>
+                <th class="table_th_data"><input value="{{ x.time }}" type="text" name="time" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Fees</th>
+                <th class="table_th_data"><input type="number" value="{{ x.fees }}" name="fees" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Duration (In Days)</th>
+                <th class="table_th_data"><input type="number" name="duration" value="{{ x.duration }}" required></th>
+            </tr>
+            <tr><th class="table_th_data" colspan="2"><button class="table_th_button" type="submit">Update</button></th></tr>
+            {% endfor %}
+        </table>
+    </form>
+    <br><br>
+{% endblock %}

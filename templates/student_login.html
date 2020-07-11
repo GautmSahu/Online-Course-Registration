@@ -1,0 +1,16 @@
+{% extends 'common.html' %}
+{% block content %}
+    <br>
+    <form action="{% url 'validate_student' %}" method="post">
+    {% csrf_token %}
+        <table align="center" border="4">
+            <tr><th colspan="2" class="table_th_title"> Student Login</th></tr>
+            <tr><th class="table_th_title1">Email</th><th class="table_th_data"><input type="email" required name="email"></th></tr>
+            <tr><th class="table_th_title1">Password</th><th class="table_th_data"><input type="password" required name="password"></th></tr>
+            <tr><th colspan="2" class="table_th_title1"><button class="table_th_button" type="submit">Login</button></th></tr>
+            {% if error %}
+                <tr><th colspan="2" class="error_mess">{{ error }}</th></tr>
+            {% endif %}
+        </table>
+    </form>
+{% endblock %}

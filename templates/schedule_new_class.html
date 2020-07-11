@@ -1,0 +1,44 @@
+{% extends 'admin_menu.html' %}
+{% block adm_content %}
+    <br>
+    <form action="{% url 'admin_schedule_new_class' %}" method="post">
+    {% csrf_token %}
+        <table border="4" align="center">
+
+            {% if  success %}
+                <tr><th colspan="2" class="success_mess">{{ success }}</th></tr>
+            {% endif %}
+            {% if  error %}
+                <tr><th colspan="2" class="success_mess">{{ error }}</th></tr>
+            {% endif %}
+
+            <tr><th colspan="2" class="table_th_title">Schedule A New Course</th></tr>
+            <tr>
+                <th class="table_th_title1">Course Name</th>
+                <th class="table_th_data"><input type="text" name="name" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Faculty Name</th>
+                <th class="table_th_data"><input type="text" name="faculty_name" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Date</th>
+                <th class="table_th_data"><input type="date" required name="date"></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Time</th>
+                <th class="table_th_data"><input type="text" name="time" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Fees</th>
+                <th class="table_th_data"><input type="number" name="fees" required></th>
+            </tr>
+            <tr>
+                <th class="table_th_title1">Duration (In Days)</th>
+                <th class="table_th_data"><input type="number" name="duration" required></th>
+            </tr>
+            <tr><th class="table_th_data" colspan="2"><button class="table_th_button" type="submit">Schedule</button></th></tr>
+        </table>
+    </form>
+    <br><br>
+{% endblock %}
